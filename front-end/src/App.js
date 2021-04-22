@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import LogIn from './Components/Log-in'
 
 
+import PrivateRoute from './Components/PrivateRoute'
+import Profile from './Components/Profile'
+import { axiosWithAuth } from './Utilities/axiosWithAuth';
+import axios from 'axios';
+
+
 function App() {
+
   return (
     <div className="App">
       <nav>
@@ -27,6 +34,9 @@ function App() {
         {/* <Route path='/shop'>
           <Shop />
         </Route> */}
+        <PrivateRoute path='profile'>
+          <Profile />
+        </PrivateRoute>
       </Switch>
 
     </div>

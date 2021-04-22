@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SignupForm from './SignupForm'
+import * as yup from 'yup'
+import schema from '../Utilities/formSchema'
 
 const startSignUp = {
     //text inputs//
@@ -29,7 +31,20 @@ export default function LogIn() {
     //EventHandelers
 
     const inputChange = (name, value) => {
-
+        yup.reach(schema, name)
+            .validate(value)
+            .then(() => {
+                setFormErrors({
+                    ...formErrors,
+                    [name]: '',
+                })
+            })
+            .catch(err => {
+                setFormErrors({
+                    ...formErrors,
+                    [name]: err.errors[0]
+                })
+            })
         setSignUp({
             ...signUp, [name]: value
         })
@@ -38,16 +53,17 @@ export default function LogIn() {
     const formSubmit = () => {
         const newSignup = {
             name: signUp.name.trim(),
-            email: signUp.name.trim(),
+            email: signUp.email.trim(),
+            password: signUp.password,
         }
     }
 
-    // useEffect(() => {
-    //     schema.isValid(signUp)
-    //         .then(valid => {
-    //             setDisabled(!valid)
-    //         })
-    // }, [signUp])
+    useEffect(() => {
+        schema.isValid(signUp)
+            .then(valid => {
+                setDisabled(!valid)
+            })
+    }, [signUp])
 
     return (
         <div>
@@ -56,7 +72,8 @@ export default function LogIn() {
                 values={signUp}
                 change={inputChange}
                 submit={formSubmit}
-                disabled={disabled} />
+                disabled={disabled}
+                errors={formErrors} />
         </div>
     )
 }

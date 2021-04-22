@@ -3,15 +3,16 @@ import React from 'react'
 
 
 export default function SignupForm(props) {
-    const { values, change, submit, disabled } = props
+    const { values, change, submit, disabled, errors } = props
 
     const onSubmit = evt => {
         evt.preventDefault()
         submit()
     }
     const onChange = evt => {
-        const { name, value } = evt.target
-        change(name, value)
+        const { name, value, type, checked } = evt.target
+        const valueToUse = type === 'checkbox' ? checked : value
+        change(name, valueToUse)
     }
 
     return (
@@ -60,6 +61,13 @@ export default function SignupForm(props) {
                             name='age'
                             type='checkbox' />
                     </label>
+                    <div className='errors'>
+                        <div>{errors.name}</div>
+                        <div>{errors.email}</div>
+                        <div>{errors.password}</div>
+                        <div>{errors.terms}</div>
+                        <div>{errors.age}</div>
+                    </div>
                     <button disabled={disabled}>Sign-Up</button>
                 </div>
             </form>

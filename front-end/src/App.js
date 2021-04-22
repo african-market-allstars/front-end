@@ -7,17 +7,6 @@ import axios from 'axios';
 
 function App() {
 
-  useEffect(() => {
-    axios.get('https://swapi.dev/api/people/1')
-    .then((response => {
-    console.log(response.data)
-    }))
-    .catch((error => {
-    console.log('something went wrong',error)
-    }))
-    }
-  ,[])
-
   return (
     <div className="App">
       <nav>

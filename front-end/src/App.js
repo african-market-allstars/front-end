@@ -15,7 +15,7 @@ function App() {
         <Link to='/login'>Sign-up Or Log-in</Link>
         <Link to='/shop'>Market Place</Link>
       </nav>
-      {/* <Switch>
+      <Switch>
         <Route exact path='/'>
           <Homepage />
         </Route>
@@ -28,7 +28,7 @@ function App() {
         <Route path='/shop'>
           <Shop />
         </Route>
-      </Switch> */}
+      </Switch>
 
     </div>
   );

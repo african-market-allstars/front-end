@@ -38,14 +38,14 @@ export default function SignupForm(props) {
                     </label>
                     <label> Password:
                         <input
-                            value={value.password}
+                            value={values.password}
                             onChange={onChange}
                             name='password'
                             type='password'
                             placeholder='Password must be more than 4 characters' />
                     </label>
                     <label> Terms:
-                        <p>Do you agree to be ab beautiful human??</p>
+                        <p>Do you agree to be a beautiful human??</p>
                         <input
                             checked={values.terms}
                             onChange={onChange}
@@ -60,6 +60,7 @@ export default function SignupForm(props) {
                             name='age'
                             type='checkbox' />
                     </label>
+                    <button disabled={disabled}>Sign-Up</button>
                 </div>
             </form>
         </div>

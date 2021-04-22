@@ -15,18 +15,18 @@ function App() {
         <Link to='/shop'>Market Place</Link>
       </nav>
       <Switch>
-        <Route exact path='/'>
+        {/* <Route exact path='/'>
           <Homepage />
         </Route>
         <Route path='/about'>
           <About />
-        </Route>
+        </Route> */}
         <Route path='/login'>
           <LogIn />
         </Route>
-        <Route path='/shop'>
+        {/* <Route path='/shop'>
           <Shop />
-        </Route>
+        </Route> */}
       </Switch>
 
     </div>

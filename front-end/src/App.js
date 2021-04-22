@@ -2,6 +2,8 @@ import React from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
+import LogIn from './Components/Log-in'
+
 
 function App() {
   return (
@@ -20,7 +22,7 @@ function App() {
           <About />
         </Route>
         <Route path='/login'>
-          <Log-in />
+          <LogIn />
         </Route>
         <Route path='/shop'>
           <Shop />

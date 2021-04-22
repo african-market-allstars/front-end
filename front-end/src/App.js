@@ -2,7 +2,8 @@ import React from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
-
+import PrivateRoute from './Components/PrivateRoute'
+import Profile from './Components/Profile'
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,9 @@ function App() {
         <Route path='/shop'>
           <Shop />
         </Route>
+        <PrivateRoute path='profile'>
+          <Profile/>
+        </PrivateRoute>
       </Switch>
 
     </div>

@@ -1,4 +1,4 @@
-import Reactfrom 'react'
+import React from 'react'
 
 
 
@@ -35,6 +35,30 @@ export default function SignupForm(props) {
                             name='email'
                             type='email'
                             placeholder='Email' />
+                    </label>
+                    <label> Password:
+                        <input
+                            value={value.password}
+                            onChange={onChange}
+                            name='password'
+                            type='password'
+                            placeholder='Password must be more than 4 characters' />
+                    </label>
+                    <label> Terms:
+                        <p>Do you agree to be ab beautiful human??</p>
+                        <input
+                            checked={values.terms}
+                            onChange={onChange}
+                            name='terms'
+                            type='checkbox'
+                        />
+                    </label>
+                    <label>Are you over the age of 18?
+                        <input
+                            checked={values.age}
+                            onChange={onChange}
+                            name='age'
+                            type='checkbox' />
                     </label>
                 </div>
             </form>

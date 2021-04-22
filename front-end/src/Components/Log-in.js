@@ -42,12 +42,12 @@ export default function LogIn() {
         }
     }
 
-    useEffect(() => {
-        schema.isValid(signUp)
-            .then(valid => {
-                setDisabled(!valid)
-            })
-    }, [signUp])
+    // useEffect(() => {
+    //     schema.isValid(signUp)
+    //         .then(valid => {
+    //             setDisabled(!valid)
+    //         })
+    // }, [signUp])
 
     return (
         <div>

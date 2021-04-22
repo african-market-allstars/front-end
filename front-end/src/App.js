@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
+import {axiosWithAuth} from './Utilities/axiosWithAuth';
+import axios from 'axios'; 
 
 function App() {
+
+  useEffect(() => {
+    axios.get('https://swapi.dev/api/people/1')
+    .then((response => {
+    console.log(response.data)
+    }))
+    .catch((error => {
+    console.log('something went wrong',error)
+    }))
+    }
+  ,[])
+
   return (
     <div className="App">
       <nav>

@@ -46,7 +46,7 @@ const startSignUp = {
         <div>
             <form className='signUp' onSubmit={onSubmit}>
                 <div>
-                    <h2>Sign Up here</h2>
+                    <h2>Sign Up Here</h2>
                     <label>Name:
                         <input
                             value={values.name}

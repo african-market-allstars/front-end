@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
+import About from './Components/About'
 
 function App() {
   return (
@@ -13,18 +14,18 @@ function App() {
         <Link to='/shop'>Market Place</Link>
       </nav>
       <Switch>
-        <Route exact path='/'>
+        {/* <Route exact path='/'>
           <Homepage />
-        </Route>
+        </Route> */}
         <Route path='/about'>
           <About />
         </Route>
-        <Route path='/login'>
+        {/* <Route path='/login'>
           <Log-in />
         </Route>
         <Route path='/shop'>
           <Shop />
-        </Route>
+        </Route> */}
       </Switch>
 
     </div>

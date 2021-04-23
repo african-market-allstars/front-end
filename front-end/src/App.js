@@ -3,7 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 // ashley
-import LogIn from './Components/Log-in'
+import UserForms from './Components/UserForms'
 
 // already merged with main
 import PrivateRoute from './Components/PrivateRoute'
@@ -18,7 +18,8 @@ function App() {
       <nav>
         <Link to='/'>Home</Link>
         <Link to='/about'>About Us</Link>
-        <Link to='/login'>Sign-up Or Log-in</Link>
+        <Link to='/login'>Log-In</Link>
+        <Link to='/login/newuser'>Sign-Up</Link>
         <Link to='/shop'>Market Place</Link>
       </nav>
       <Switch>
@@ -29,7 +30,7 @@ function App() {
           <About />
         </Route> */}
         <Route path='/login'>
-          <LogIn />
+          <UserForms />
         </Route>
         {/* <Route path='/shop'>
           <Shop />

@@ -3,8 +3,9 @@ import { Route, Link, Switch } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 // ashley
-import LogIn from "./Components/Log-in";
-import SignUp from "./Components/Login";
+import LogIn from "./Components/Login";
+import SignUp from "./Components/Log-in";
+import Home from "./Components/Home";
 
 // already merged with main
 import PrivateRoute from "./Components/PrivateRoute";
@@ -16,17 +17,17 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About Us</Link>
-        <Link to="/login">Log-in</Link>
-        <Link to="/sign-up">Sign-up</Link>
-        <Link to="/shop">Market Place</Link>
+        <Link class="link" to="/">Home</Link>
+        <Link class="link" to="/about">About Us</Link>
+        <Link class="link" to="/shop">Market Place</Link>
+        <Link class="link" to="/login">Log-in</Link>
+        <Link class="link" to="/sign-up">Sign-up</Link>
       </nav>
       <Switch>
-        {/* <Route exact path='/'>
-          <Homepage />
+        <Route exact path='/'>
+          <Home />
         </Route>
-        <Route path='/about'>
+        {/*<Route path='/about'>
           <About />
         </Route> */}
         <Route path="/login">

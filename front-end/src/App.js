@@ -8,8 +8,7 @@ import LogIn from './Components/Log-in'
 // already merged with main
 import PrivateRoute from './Components/PrivateRoute'
 import Profile from './Components/Profile'
-import { axiosWithAuth } from './Utilities/axiosWithAuth';
-import axios from 'axios';
+
 
 
 function App() {

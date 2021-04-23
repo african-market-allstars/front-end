@@ -16,7 +16,7 @@ export default function LoginForm(props) {
     <div>
       <form className="signUp" onSubmit={onSubmit}>
         <div>
-          <h2>Sign Up here</h2>
+          <h2>Login</h2>
           <label>
             Name:
             <input
@@ -38,6 +38,7 @@ export default function LoginForm(props) {
               placeholder="Please enter your secure password"
             />
           </label>
+          <button disabled={disabled}>Sign-Up</button>
         </div>
       </form>
     </div>

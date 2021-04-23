@@ -2,10 +2,15 @@ import React, { useEffect } from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
+// ashley
+import LogIn from './Components/Log-in'
+
+// already merged with main
 import PrivateRoute from './Components/PrivateRoute'
 import Profile from './Components/Profile'
-import {axiosWithAuth} from './Utilities/axiosWithAuth';
-import axios from 'axios'; 
+import { axiosWithAuth } from './Utilities/axiosWithAuth';
+import axios from 'axios';
+
 
 function App() {
 
@@ -18,20 +23,20 @@ function App() {
         <Link to='/shop'>Market Place</Link>
       </nav>
       <Switch>
-        <Route exact path='/'>
+        {/* <Route exact path='/'>
           <Homepage />
         </Route>
         <Route path='/about'>
           <About />
-        </Route>
+        </Route> */}
         <Route path='/login'>
-          <Log-in />
+          <LogIn />
         </Route>
-        <Route path='/shop'>
+        {/* <Route path='/shop'>
           <Shop />
-        </Route>
+        </Route> */}
         <PrivateRoute path='profile'>
-          <Profile/>
+          <Profile />
         </PrivateRoute>
       </Switch>
 

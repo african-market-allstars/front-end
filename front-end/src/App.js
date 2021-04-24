@@ -1,12 +1,10 @@
 import React  from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import './App.css';
-// ashley
+
 import UserForms from './Components/UserForms'
 import Home from "./Components/Home";
 import About from './Components/About'
-
-// already merged with main
 import PrivateRoute from './Components/PrivateRoute'
 import Profile from './Components/Profile'
 
@@ -22,7 +20,7 @@ function App() {
         <Link className="link" to="/about">About Us</Link>
         <Link className="link" to="/shop">Market Place</Link>
         <Link className="link" to="/login">Log-in</Link>
-        <Link className="link" to="/sign-up">Sign-up</Link>
+        <Link className="link" to="/login/signup">Sign-up</Link>
       </nav>
       <Switch>
 
@@ -35,6 +33,7 @@ function App() {
         <Route path='/login'>
           <UserForms />
         </Route>
+      
         {/* <Route path='/shop'>
           <Shop />
         </Route> */}

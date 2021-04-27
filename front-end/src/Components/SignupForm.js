@@ -1,10 +1,37 @@
 import React from 'react'
-
+import { useForm} from '../hook/useForm'
 
 
 export default function SignupForm(props) {
-    const { values, change, submit, disabled, errors } = props
 
+    // Register/Sign-Up initialValues
+const startSignUp = {
+    //text inputs//
+    name: "",
+    email: "",
+    password: "",
+    //checkbox//
+    terms: false,
+    age: false,
+  };
+  // Register/Sign-Up initialErrors
+  const startFormErrors = {
+    name: "",
+    email: "",
+    password: "",
+    terms: true,
+    age: "",
+  };
+
+  const startDisabled = true;
+    // const { values, change, submit, disabled, errors } = props
+    // So instead of Props The component is using a custom hook in order to reuse a lot of the code that was written previously in Log-In.js
+    const [formValues , formErrors , disabled, inputChange , formSubmit] = useForm(startSignUp , startFormErrors , startDisabled)
+    const values = formValues
+    const change = inputChange
+    const submit = formSubmit
+    const errors = formErrors 
+        
     const onSubmit = evt => {
         evt.preventDefault()
         submit()
@@ -19,7 +46,7 @@ export default function SignupForm(props) {
         <div>
             <form className='signUp' onSubmit={onSubmit}>
                 <div>
-                    <h2>Sign Up here</h2>
+                    <h2>Sign Up Here</h2>
                     <label>Name:
                         <input
                             value={values.name}

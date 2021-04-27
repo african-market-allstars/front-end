@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react'
+import React  from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
-import logo from './logo.svg';
 import './App.css';
-// ashley
-import LogIn from './Components/Log-in'
 
-// already merged with main
+import UserForms from './Components/UserForms'
+import Home from "./Components/Home";
+import About from './Components/About'
 import PrivateRoute from './Components/PrivateRoute'
 import Profile from './Components/Profile'
-import { axiosWithAuth } from './Utilities/axiosWithAuth';
-import axios from 'axios';
+
+
 
 
 function App() {
@@ -17,21 +16,24 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About Us</Link>
-        <Link to='/login'>Sign-up Or Log-in</Link>
-        <Link to='/shop'>Market Place</Link>
+        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/about">About Us</Link>
+        <Link className="link" to="/shop">Market Place</Link>
+        <Link className="link" to="/login">Log-in</Link>
+        <Link className="link" to="/login/signup">Sign-up</Link>
       </nav>
       <Switch>
-        {/* <Route exact path='/'>
-          <Homepage />
-        </Route>
+
+         <Route exact path='/'>
+          <Home />
+          </Route>       
         <Route path='/about'>
           <About />
-        </Route> */}
-        <Route path='/login'>
-          <LogIn />
         </Route>
+        <Route path='/login'>
+          <UserForms />
+        </Route>
+      
         {/* <Route path='/shop'>
           <Shop />
         </Route> */}

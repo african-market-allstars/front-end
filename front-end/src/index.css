@@ -7,7 +7,128 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.items-list-wrapper {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.item-card {
+  width: 250px;
+  margin: 0 10px 32px;
+  cursor: pointer;
+}
+
+.item-card p {
+  margin: 0 0 4px;
+  text-align: left;
+  color: #c70f99;
+}
+
+.item-list-image {
+  width: 100%;
+  border: 1px solid lightgray;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 32px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1c5d76;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.nav-links a:last-of-type {
+  margin-right: 0;
+}
+
+.nav-links a.active {
+  border-bottom: 1px solid #e45706;
+}
+.item-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.item-header {
+  display: flex;
+}
+
+.item-header h2,
+.item-header h4 {
+  color: #2b8078;
+  margin: 0;
+}
+
+.item-header h4 {
+  margin-top: 16px;
+}
+
+.item-sub-nav {
+  border-bottom: 3px solid pink;
+  justify-content: center;
+}
+
+.item-sub-nav a {
+  color: blueviolet;
+  text-decoration: none;
+  padding: 12px;
+}
+
+.item-sub-nav a.active {
+  color:pink;
+  font-weight: bold;
+}
+
+.item-sub-nav a:first-of-type {
+  margin-right: 32px;
+}
+
+.item-card a {
+  text-decoration: none;
+}
+
+.image-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.item-title-wrapper {
+  width: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.item-description {
+  max-width: 720px;
+  margin: 32px auto;
 }

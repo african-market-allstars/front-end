@@ -2,6 +2,8 @@ import React  from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import './App.css';
 
+<<<<<<< HEAD
+=======
 import UserForms from './Components/UserForms'
 import Home from "./Components/Home";
 import About from './Components/About'
@@ -10,6 +12,7 @@ import Profile from './Components/Profile'
 
 
 
+>>>>>>> 5e205205f4f85c562b4c5a6e459c84d106f31beb
 
 function App() {
 

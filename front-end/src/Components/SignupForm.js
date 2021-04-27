@@ -3,7 +3,7 @@ import React from 'react'
 import { useForm} from '../hook/useForm'
 
 
-export default function SignupForm(props) {
+export default function SignupForm() {
 
     // Register/Sign-Up initialValues
 const startSignUp = {
@@ -38,6 +38,7 @@ const startSignUp = {
           password: formValues.password,
         };
         
+
         const newUser = (login) => {
             axios.post('http://localhost:3000/api/auth/register', login)
             .then( res => console.log('success', res))

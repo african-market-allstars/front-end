@@ -1,26 +1,34 @@
-import React ,{useState} from "react"
-import {Link, Route, Switch, useHistory} from "react-router-dom"
+import React ,{useEffect, useState} from "react"
+import {Link, Route, useHistory} from "react-router-dom"
 import data from "./data"
-import Home from "./Home"
 import Item from "./Item"
-import Profile from "./Profile"
+
 
 function Shop () {
-    const[products, setProducts] = useState(data)
+    const[products, setProducts] = useState([])
     const {push, goBack} = useHistory();
+
+    useEffect( ()=>{
+        setProducts(data)
+    },[] )
 
     return (
         <div className="Shop">
-            <nav>
+            {/* <nav>
                 <h1>African Market Place </h1>
                 <div className="nav-links">
                     <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>
                     <Link to="/profile">Profile</Link>
                 </div>
-            </nav>
-
-            <div className="items-list-wrapper">
+            </nav> */}
+            <div>
+                {products.map( item => {
+                    return <Item shopItem = {item} />
+                })}
+            </div>
+           
+            {/* <div className="items-list-wrapper">
                 {products.map((item) => (
                     <Link to={`/shop/${item.id}`}>
                         <div className= "item-card" key={item.id}>
@@ -30,17 +38,10 @@ function Shop () {
                         </div>
                     </Link>
                 ))}
-
-                <Switch>
                     <Route path="/shop/:id">
                         <Item items= {products} />
                     </Route>
-
-                    <Route path="/profile" component={Profile}/>
-                    <Route path="/shop" component={Shop} />
-                    <Route path="/" component={Home} />
-                </Switch>
-            </div>
+            </div> */}
         </div>
     )
 }

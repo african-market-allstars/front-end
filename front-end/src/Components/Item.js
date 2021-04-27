@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Route,
-  Link,
   NavLink,
   useParams,
   useRouteMatch
@@ -9,11 +8,11 @@ import {
 import ItemDescription from "./ItemDescription";
 import ItemShipping from "./ItemShipping";
 
-function Item(props) {
+function Item({shopItem}) {
   const params = useParams();
   const routeMatch = useRouteMatch();
-
-  const shopItem = props.items.find((item) => item.id === Number(params.id));
+console.log(shopItem)
+  // const shopItem = props.items.find((item) => item.id === Number(params.id));
 
   return (
     <div className="item-wrapper">

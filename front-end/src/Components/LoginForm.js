@@ -1,9 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-
-export default function LoginForm(props) {
-  const { values, change, submit, disabled, errors } = props;
-=======
 import { useForm } from "../hook/useForm";
 
 export default function LoginForm(props) {
@@ -26,7 +21,6 @@ export default function LoginForm(props) {
   const submit = formSubmit
   // const errors = formErrors 
 
->>>>>>> 5e205205f4f85c562b4c5a6e459c84d106f31beb
   const onSubmit = (evt) => {
     evt.preventDefault();
     submit();
@@ -68,8 +62,4 @@ export default function LoginForm(props) {
       </form>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 5e205205f4f85c562b4c5a6e459c84d106f31beb

@@ -9,16 +9,12 @@ export default function LogIn() {
   return (
     <section className="UserForms">
       <Switch>
-        <Route path="/login/signup">
-          <div>
+        <Route path="/signup">
             <SignupForm/>
-          </div>
         </Route>
 
         <Route path="/login">
-          <div>
             <LoginForm/>
-          </div>
         </Route>
       </Switch>
    <NavLink to ="/signup">New User? | Signup</NavLink>

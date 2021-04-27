@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react'
 import { useForm} from '../hook/useForm'
 
@@ -26,15 +27,29 @@ const startSignUp = {
   const startDisabled = true;
     // const { values, change, submit, disabled, errors } = props
     // So instead of Props The component is using a custom hook in order to reuse a lot of the code that was written previously in Log-In.js
-    const [formValues , formErrors , disabled, inputChange , formSubmit] = useForm(startSignUp , startFormErrors , startDisabled)
+    const [formValues , formErrors , disabled, inputChange, formSubmit] = useForm(startSignUp , startFormErrors , startDisabled)
     const values = formValues
     const change = inputChange
-    const submit = formSubmit
     const errors = formErrors 
+    const submit = formSubmit
+
+        const newSignup = {
+          username: formValues.name.trim(),
+          password: formValues.password,
+        };
         
+        const newUser = (login) => {
+            axios.post('http://localhost:3000/api/auth/register', login)
+            .then( res => console.log('success', res))
+            .catch( err => console.log('error', err))
+        }
+    
+
     const onSubmit = evt => {
         evt.preventDefault()
+        newUser(newSignup)
         submit()
+      
     }
     const onChange = evt => {
         const { name, value, type, checked } = evt.target

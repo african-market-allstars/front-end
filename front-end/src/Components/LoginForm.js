@@ -15,11 +15,11 @@ export default function LoginForm(props) {
   const startDisabled = true;
 
   // const { values, change, submit, disabled, errors } = props;
-  const [formValues , formErrors , disabled, inputChange , formSubmit] = useForm(startSignUp , startFormErrors , startDisabled)
+  const [formValues , disabled, inputChange , formSubmit] = useForm(startSignUp , startFormErrors , startDisabled)
   const values = formValues
   const change = inputChange
   const submit = formSubmit
-  const errors = formErrors 
+  // const errors = formErrors 
 
   const onSubmit = (evt) => {
     evt.preventDefault();

@@ -20,7 +20,7 @@ function App() {
         <Link className="link" to="/about">About Us</Link>
         <Link className="link" to="/shop">Market Place</Link>
         <Link className="link" to="/login">Log-in</Link>
-        <Link className="link" to="/login/signup">Sign-up</Link>
+        <Link className="link" to="/signup">Sign-up</Link>
       </nav>
       <Switch>
 
@@ -33,7 +33,9 @@ function App() {
         <Route path='/login'>
           <UserForms />
         </Route>
-      
+        <Route path="/signup">
+          <UserForms />
+        </Route>
         {/* <Route path='/shop'>
           <Shop />
         </Route> */}

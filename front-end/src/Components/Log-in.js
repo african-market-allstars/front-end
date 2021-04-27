@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SignupForm from './SignupForm'
 import * as yup from 'yup'
 import schema from '../Utilities/formSchema'
+// import { axiosWithAuth } from '../Utilities/axiosWithAuth';  code will be uncommented when endpoints are supplied. 
 
 const startSignUp = {
     //text inputs//
@@ -51,11 +52,20 @@ export default function LogIn() {
     }
 
     const formSubmit = () => {
-        const newSignup = {
+        const newSignUp = {
             name: signUp.name.trim(),
             email: signUp.email.trim(),
             password: signUp.password,
         }
+        // code will be uncommented when endpoints are supplied. 
+        // axiosWithAuth().post('/endpoint/path', {newSignUp})
+        // .then((res => {
+        //     console.log(res.data)
+        //     localStorage.setItem('token', res.data.token); 
+        // }))
+        // .catch((error  => {
+        //     console.log('something went wrong', error)
+        // }))
     }
 
     useEffect(() => {
@@ -77,3 +87,5 @@ export default function LogIn() {
         </div>
     )
 }
+
+

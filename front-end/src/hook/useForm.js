@@ -37,12 +37,7 @@ import schema from "../Utilities/formSchema";
       }, [formValues]);
 
       const formSubmit = () => {
-        const newSignup = {
-          username: formValues.name.trim(),
-          password: formValues.password,
-        };
-        console.log(newSignup)
-        return newSignup
+        setFormValues(initialValues)
 
 
       };

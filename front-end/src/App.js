@@ -2,17 +2,14 @@ import React  from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import './App.css';
 
-<<<<<<< HEAD
-=======
 import UserForms from './Components/UserForms'
 import Home from "./Components/Home";
 import About from './Components/About'
 import PrivateRoute from './Components/PrivateRoute'
 import Profile from './Components/Profile'
+import Shop from './Components/Shop'
 
 
-
->>>>>>> 5e205205f4f85c562b4c5a6e459c84d106f31beb
 
 function App() {
 
@@ -23,7 +20,7 @@ function App() {
         <Link className="link" to="/about">About Us</Link>
         <Link className="link" to="/shop">Market Place</Link>
         <Link className="link" to="/login">Log-in</Link>
-        <Link className="link" to="/login/signup">Sign-up</Link>
+        <Link className="link" to="/signup">Sign-up</Link>
       </nav>
       <Switch>
 
@@ -36,10 +33,12 @@ function App() {
         <Route path='/login'>
           <UserForms />
         </Route>
-      
-        {/* <Route path='/shop'>
+        <Route path="/signup">
+          <UserForms />
+        </Route>
+        <Route path='/shop'>
           <Shop />
-        </Route> */}
+        </Route>
         <PrivateRoute path='profile'>
           <Profile />
         </PrivateRoute>

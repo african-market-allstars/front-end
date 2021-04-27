@@ -1,27 +1,23 @@
+import LoginForm from "./LoginForm.js";
 import React, { useEffect, useState } from "react";
-import SignupForm from "./SignupForm";
 import * as yup from "yup";
 import schema from "../Utilities/formSchema";
+import styled from "styled-components";
+
+const StyledLoginForm = styled.div``;
 
 const startSignUp = {
   //text inputs//
   name: "",
-  email: "",
   password: "",
-  //checkbox//
-  terms: false,
-  age: false,
 };
 const startFormErrors = {
   name: "",
   email: "",
-  password: "",
-  terms: true,
-  age: "",
 };
 const startDisabled = true;
 
-export default function LogIn() {
+export default function Login() {
   const [signUp, setSignUp] = useState(startSignUp);
   const [formErrors, setFormErrors] = useState(startFormErrors);
   const [disabled, setDisabled] = useState(startDisabled);
@@ -63,11 +59,10 @@ export default function LogIn() {
       setDisabled(!valid);
     });
   }, [signUp]);
-
   return (
     <div>
       <h3>Sign Up</h3>
-      <SignupForm
+      <LoginForm
         values={signUp}
         change={inputChange}
         submit={formSubmit}

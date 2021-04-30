@@ -1,7 +1,10 @@
 *{
   box-sizing: border-box;
-  background-color: #fecc98;
+  
   text-align: center;
+}
+body{
+  background-color: #00843e;
 }
 
 nav{
@@ -13,7 +16,7 @@ nav{
 
 .link{
   text-align: center;
-  color: #040084;
+  color: #000000;
   background-color: #fecc98;
   font-size: 1.4rem;
   width: 10rem;
@@ -25,7 +28,7 @@ nav{
 
 .link:hover{
   color: #fd7f00;
-  background-color: #0141cf;
+  background-color: #e31c23;
   border: 2px solid #040084;
 }
 

@@ -2,6 +2,7 @@
   box-sizing: border-box;
   
   text-align: center;
+  color: #040084;
 }
 body{
   background-color: #00843e;
@@ -31,5 +32,3 @@ nav{
   background-color: #e31c23;
   border: 2px solid #040084;
 }
-
-/*Needs Mobile Styles*/

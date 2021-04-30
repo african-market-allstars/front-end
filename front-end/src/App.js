@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Link, Switch, Redirect } from 'react-router-dom'
 import './App.css';
 
 import UserForms from './Components/UserForms'
@@ -12,7 +12,11 @@ import Shop from './Components/Shop'
 
 
 function App() {
+  const logout = () => {
+    localStorage.removeItem('token')
+    alert("You've been signed out")
 
+  }
   return (
     <div className="App">
       <nav>
@@ -20,6 +24,7 @@ function App() {
         <Link className="link" to="/about">About Us</Link>
         <Link className="link" to="/shop">Market Place</Link>
         <Link className="link" to="/login">Sellers</Link>
+        <Link onClick={logout} className="link" to="#">Log Out</Link>
       </nav>
       <Switch>
 
@@ -38,9 +43,7 @@ function App() {
         <Route path='/shop'>
           <Shop />
         </Route>
-        <PrivateRoute path='/profile/:id'>
-          <Profile />
-        </PrivateRoute>
+        <PrivateRoute path='/profile/:id' component={Profile}/>
       </Switch>
 
     </div>

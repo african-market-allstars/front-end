@@ -80,7 +80,6 @@ export default function LoginForm() {
     .then( res => {
       console.log( 'success' , res )
       localStorage.setItem('token' , res.data.token)
-      localStorage.setItem('id' , res.data.auth.id)
       push(`/profile/${res.data.auth.id}`)
     } )
     .catch( err => console.log(err))

@@ -88,7 +88,7 @@ const data =  [{
         commoditycat: "Animal Products",
         SubCategory: "Poultry",
         commodityproduct:"Local Chicken" ,
-        imageUrl: "https://http://daylescommunitycafe.com/wp-content/uploads/2015/04/chicken-flock.jpg",
+        imageUrl: "http://daylescommunitycafe.com/wp-content/uploads/2015/04/chicken-flock.jpg",
      },
     //      {
     //       id:13,

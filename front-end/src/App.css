@@ -2,6 +2,7 @@
   box-sizing: border-box;
   background-color: #fecc98;
   text-align: center;
+  color: #040084;
 }
 
 nav{
@@ -28,5 +29,3 @@ nav{
   background-color: #0141cf;
   border: 2px solid #040084;
 }
-
-/*Needs Mobile Styles*/

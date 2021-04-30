@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import './App.css';
 
@@ -19,14 +19,13 @@ function App() {
         <Link className="link" to="/">Home</Link>
         <Link className="link" to="/about">About Us</Link>
         <Link className="link" to="/shop">Market Place</Link>
-        <Link className="link" to="/login">Log-in</Link>
-        <Link className="link" to="/signup">Sign-up</Link>
+        <Link className="link" to="/login">Sellers</Link>
       </nav>
       <Switch>
 
-         <Route exact path='/'>
+        <Route exact path='/'>
           <Home />
-          </Route>       
+        </Route>
         <Route path='/about'>
           <About />
         </Route>

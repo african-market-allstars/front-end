@@ -4,7 +4,7 @@ import { Route , Redirect } from "react-router-dom"
 const PrivateRoute = ({component:Component, ...rest}) => {
     return <Route {...rest} render = { (renderprops) => {
         if(localStorage.getItem('token') === null) {
-            return <Redirect to ='/home'/>
+            return <Redirect to ='/'/>
         }
         return <Component {...renderprops} />
     }} />

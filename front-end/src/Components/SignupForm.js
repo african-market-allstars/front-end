@@ -1,5 +1,6 @@
-import axios from 'axios';
-import React from 'react'
+// import axios from 'axios';
+// import { axiosWithAuth } from '../Utilities/axiosWithAuth'
+import React, { useEffect } from 'react'
 import { useForm } from '../hook/useForm'
 import { axiosWithAuth } from '../Utilities/axiosWithAuth'
 import { useHistory } from 'react-router';
@@ -18,6 +19,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { green } from '@material-ui/core/colors';
+import { useHistory } from 'react-router';
+import axios from 'axios';
 
 function Copyright() {
     return (
@@ -82,30 +85,36 @@ export default function SignupForm() {
     const submit = formSubmit
 
     const newSignup = {
-        username: formValues.username.trim(),
-        email: formValues.email,
-        password: formValues.password,
+
+        username: values.username,
+        email: values.email,
+        password: values.password,
+
     };
 
+    
 
     const newUser = (login) => {
-        axiosWithAuth().post('https://african-market-allstars.herokuapp.com/api/auth/register', login)
-            .then(res => console.log('success', res))
-            .catch(err => console.log('error', err))
+
+        axios.post('https://african-market-allstars.herokuapp.com/api/auth/register', login)
+            .then(res => {
+                console.log('success', res)
+                push('/login')
+        })
+            .catch(err => console.log('error', err.message))
+
     }
 
 
     const onSubmit = evt => {
         evt.preventDefault()
         newUser(newSignup)
-        submit()
-        push('/login')
+
 
     }
     const onChange = evt => {
-        const { name, value, type, checked } = evt.target
-        const valueToUse = type === 'checkbox' ? checked : value
-        change(name, valueToUse)
+        const { name, value } = evt.target
+        change(name, value)
     }
     return (
         <Container component="main" maxWidth="xs">
@@ -139,7 +148,8 @@ export default function SignupForm() {
                                 id="email"
                                 label="Email Address"
                                 name="email"
-
+                               value={values.email}
+                               onChange={onChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -151,19 +161,25 @@ export default function SignupForm() {
                                 label="Password"
                                 type="password"
                                 id="password"
+                                value={values.password}
+                                onChange={onChange}
 
                             />
                         </Grid>
-                        <Grid item xs={12}>
-                            {/* <FormControlLabel
+
+                        {/* <Grid item xs={12}>
+                            <FormControlLabel
+
                                 control={<Checkbox checked={values.terms}
                                     onChange={onChange}
                                     type='checkbox'
                                     name='terms'
                                     color="primary" />}
                                 label="Do you agree to be a beautiful human?"
-                            /> */}
-                        </Grid>
+
+                            />
+                        </Grid> */}
+
                     </Grid>
                     <Button
                         type="submit"

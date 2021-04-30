@@ -76,7 +76,6 @@ export default function LoginForm() {
   const errors = formErrors
 
 
-
   const login = (userInfo) => {
     axiosWithAuth().post('https://african-market-allstars.herokuapp.com/api/auth/login', userInfo)
       .then(res => {

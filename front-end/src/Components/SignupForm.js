@@ -4,6 +4,7 @@ import React, { useEffect } from 'react'
 import { useForm } from '../hook/useForm'
 import { axiosWithAuth } from '../Utilities/axiosWithAuth'
 import { useHistory } from 'react-router';
+import axios from 'axios';
 //added for material ui
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -19,8 +20,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { green } from '@material-ui/core/colors';
-import { useHistory } from 'react-router';
-import axios from 'axios';
+
+
 
 function Copyright() {
     return (
@@ -92,7 +93,7 @@ export default function SignupForm() {
 
     };
 
-    
+
 
     const newUser = (login) => {
 
@@ -100,7 +101,7 @@ export default function SignupForm() {
             .then(res => {
                 console.log('success', res)
                 push('/login')
-        })
+            })
             .catch(err => console.log('error', err.message))
 
     }
@@ -148,8 +149,8 @@ export default function SignupForm() {
                                 id="email"
                                 label="Email Address"
                                 name="email"
-                               value={values.email}
-                               onChange={onChange}
+                                value={values.email}
+                                onChange={onChange}
                             />
                         </Grid>
                         <Grid item xs={12}>

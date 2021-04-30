@@ -1,13 +1,15 @@
 import axios from 'axios';
 import React from 'react'
 import { useForm } from '../hook/useForm'
+import { axiosWithAuth } from '../Utilities/axiosWithAuth'
+import { useHistory } from 'react-router';
 //added for material ui
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -52,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignupForm() {
     const classes = useStyles();
-
+    const { push } = useHistory();
     //Register/Sign-Up initialValues
     const startSignUp = {
         //text inputs//
@@ -60,14 +62,14 @@ export default function SignupForm() {
         email: "",
         password: "",
         //checkbox//
-        terms: false,
+        // terms: false,
     };
     // Register/Sign-Up initialErrors
     const startFormErrors = {
         username: "",
         email: "",
         password: "",
-        terms: true,
+        // terms: true,
     };
 
     const startDisabled = true;
@@ -81,12 +83,13 @@ export default function SignupForm() {
 
     const newSignup = {
         username: formValues.username.trim(),
+        email: formValues.email,
         password: formValues.password,
     };
 
 
     const newUser = (login) => {
-        axios.post('http://localhost:3000/api/auth/register', login)
+        axiosWithAuth().post('https://african-market-allstars.herokuapp.com/api/auth/register', login)
             .then(res => console.log('success', res))
             .catch(err => console.log('error', err))
     }
@@ -96,6 +99,7 @@ export default function SignupForm() {
         evt.preventDefault()
         newUser(newSignup)
         submit()
+        push('/login')
 
     }
     const onChange = evt => {
@@ -151,14 +155,14 @@ export default function SignupForm() {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <FormControlLabel
+                            {/* <FormControlLabel
                                 control={<Checkbox checked={values.terms}
                                     onChange={onChange}
                                     type='checkbox'
                                     name='terms'
                                     color="primary" />}
                                 label="Do you agree to be a beautiful human?"
-                            />
+                            /> */}
                         </Grid>
                     </Grid>
                     <Button

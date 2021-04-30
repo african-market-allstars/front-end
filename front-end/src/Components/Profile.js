@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Profile = () => {
+    // useEffect( () =>{
+    //     axios
+    // },[] )
 
     return (
         <div>
@@ -11,27 +14,27 @@ const Profile = () => {
             <form>
                 <label htmlFor='itemName'>Item Name</label>
                 <input
-                    name = 'itemName'
-                    type = 'text'
+                    name='itemName'
+                    type='text'
 
                 />
                 <label htmlFor='price'>Price</label>
                 <input
-                    name = 'price'
-                    type = 'number'
+                    name='price'
+                    type='number'
 
                 />
                 <label htmlFor='description'>Description</label>
                 <textarea
-                    name = 'description'
-                    
+                    name='description'
+
 
                 />
                 <button>Submit</button>
             </form>
-            
+
         </div>
-    
+
 
     )
 }

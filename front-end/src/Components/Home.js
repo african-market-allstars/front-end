@@ -42,15 +42,33 @@ const Home = (()=>{
   return(
     <div>
       <h2>Welcome Back</h2>
-      <h3>Jump right back into the savings with these local products</h3>
+      <h3>Jump right back into the savings with these quality products</h3>
 
       <div className="homeImgContainer">
-        <img className="homeImg" src={randProd1.imageUrl}/>
-        <img className="homeImg" src={randProd2.imageUrl}/>
-        <img className="homeImg" src={randProd3.imageUrl}/>
-        <img className="homeImg" src={randProd4.imageUrl}/>
-        <img className="homeImg" src={randProd5.imageUrl}/>
-        <img className="homeImg" src={randProd6.imageUrl}/>
+        <div className="homeImgFrame">
+          <img className="homeImg" src={randProd1.imageUrl}/>
+          <p className="homeImgCaption">{randProd1.commodityproduct}</p>
+        </div>
+        <div className="homeImgFrame">
+          <img className="homeImg" src={randProd2.imageUrl}/>
+          <p className="homeImgCaption">{randProd2.commodityproduct}</p>
+        </div>
+        <div className="homeImgFrame">
+          <img className="homeImg" src={randProd3.imageUrl}/>
+          <p className="homeImgCaption">{randProd3.commodityproduct}</p>
+        </div>
+        <div className="homeImgFrame">
+          <img className="homeImg" src={randProd4.imageUrl}/>
+          <p className="homeImgCaption">{randProd4.commodityproduct}</p>
+        </div>
+        <div className="homeImgFrame">
+          <img className="homeImg" src={randProd5.imageUrl}/>
+          <p className="homeImgCaption">{randProd5.commodityproduct}</p>
+        </div>
+        <div className="homeImgFrame">
+          <img className="homeImg" src={randProd6.imageUrl}/>
+          <p className="homeImgCaption">{randProd6.commodityproduct}</p>
+        </div>
       </div>
 
       <div className="linkShopContainer">

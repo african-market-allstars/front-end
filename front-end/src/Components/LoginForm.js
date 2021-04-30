@@ -19,7 +19,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { useHistory } from "react-router";
+
 
 function Copyright() {
   return (
@@ -69,22 +69,21 @@ export default function LoginForm() {
   const startDisabled = true;
 
   // const { values, change, submit, disabled, errors } = props;
-  const [formValues , formErrors , disabled, inputChange , formSubmit] = useForm(startSignUp, startFormErrors, startDisabled)
+  const [formValues, formErrors, disabled, inputChange, formSubmit] = useForm(startSignUp, startFormErrors, startDisabled)
   const values = formValues
   const change = inputChange
   const submit = formSubmit
-  const errors = formErrors 
-  const {push} = useHistory()
+  const errors = formErrors
 
 
   const login = (userInfo) => {
     axiosWithAuth().post('https://african-market-allstars.herokuapp.com/api/auth/login', userInfo)
-    .then( res => {
-      console.log( 'success' , res )
-      localStorage.setItem('token' , res.data.token)
-      push(`/profile/${res.data.auth.username}`)
-    } )
-    .catch( err => console.log(err))
+      .then(res => {
+        console.log('success', res)
+        localStorage.setItem('token', res.data.token)
+        push(`/profile/${res.data.auth.username}`)
+      })
+      .catch(err => console.log(err))
 
   }
 
@@ -112,7 +111,7 @@ export default function LoginForm() {
           Sign in
         </Typography>
 
-        <form className={classes.form}  onSubmit={onSubmit}>
+        <form className={classes.form} onSubmit={onSubmit}>
 
           <TextField
             variant="outlined"

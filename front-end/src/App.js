@@ -38,7 +38,7 @@ function App() {
         <Route path='/shop'>
           <Shop />
         </Route>
-        <PrivateRoute path='profile'>
+        <PrivateRoute path='/profile/:id'>
           <Profile />
         </PrivateRoute>
       </Switch>

@@ -1,5 +1,6 @@
-import axios from 'axios';
-import React from 'react'
+// import axios from 'axios';
+// import { axiosWithAuth } from '../Utilities/axiosWithAuth'
+import React, { useEffect } from 'react'
 import { useForm } from '../hook/useForm'
 //added for material ui
 import Avatar from '@material-ui/core/Avatar';
@@ -16,6 +17,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { green } from '@material-ui/core/colors';
+import { useHistory } from 'react-router';
+import axios from 'axios';
 
 function Copyright() {
     return (
@@ -52,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignupForm() {
     const classes = useStyles();
-
+    const { push } = useHistory();
     //Register/Sign-Up initialValues
     const startSignUp = {
         //text inputs//
@@ -60,14 +63,14 @@ export default function SignupForm() {
         email: "",
         password: "",
         //checkbox//
-        terms: false,
+        // terms: false,
     };
     // Register/Sign-Up initialErrors
     const startFormErrors = {
         username: "",
         email: "",
         password: "",
-        terms: true,
+        // terms: true,
     };
 
     const startDisabled = true;
@@ -80,28 +83,32 @@ export default function SignupForm() {
     const submit = formSubmit
 
     const newSignup = {
-        username: formValues.username.trim(),
-        password: formValues.password,
+        username: values.username,
+        email: values.email,
+        password: values.password,
     };
 
+    
 
     const newUser = (login) => {
-        axios.post('http://localhost:3000/api/auth/register', login)
-            .then(res => console.log('success', res))
-            .catch(err => console.log('error', err))
+        axios.post('https://african-market-allstars.herokuapp.com/api/auth/register', login)
+            .then(res => {
+                console.log('success', res)
+                push('/login')
+        })
+            .catch(err => console.log('error', err.message))
     }
 
 
     const onSubmit = evt => {
         evt.preventDefault()
         newUser(newSignup)
-        submit()
+
 
     }
     const onChange = evt => {
-        const { name, value, type, checked } = evt.target
-        const valueToUse = type === 'checkbox' ? checked : value
-        change(name, valueToUse)
+        const { name, value } = evt.target
+        change(name, value)
     }
     return (
         <Container component="main" maxWidth="xs">
@@ -135,7 +142,8 @@ export default function SignupForm() {
                                 id="email"
                                 label="Email Address"
                                 name="email"
-
+                               value={values.email}
+                               onChange={onChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -147,10 +155,12 @@ export default function SignupForm() {
                                 label="Password"
                                 type="password"
                                 id="password"
+                                value={values.password}
+                                onChange={onChange}
 
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        {/* <Grid item xs={12}>
                             <FormControlLabel
                                 control={<Checkbox checked={values.terms}
                                     onChange={onChange}
@@ -159,7 +169,7 @@ export default function SignupForm() {
                                     color="primary" />}
                                 label="Do you agree to be a beautiful human?"
                             />
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                     <Button
                         type="submit"

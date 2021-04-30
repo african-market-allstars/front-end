@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "../hook/useForm";
+import { axiosWithAuth } from "../Utilities/axiosWithAuth"
 //Material ui stuff
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -14,6 +15,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useHistory } from "react-router";
 
 function Copyright() {
   return (
@@ -62,14 +64,31 @@ export default function LoginForm() {
   const startDisabled = true;
 
   // const { values, change, submit, disabled, errors } = props;
-  const [formValues, disabled, inputChange, formSubmit] = useForm(startSignUp, startFormErrors, startDisabled)
+  const [formValues , formErrors , disabled, inputChange , formSubmit] = useForm(startSignUp, startFormErrors, startDisabled)
   const values = formValues
-  const change = () => inputChange
+  const change = inputChange
   const submit = formSubmit
-  // const errors = formErrors 
+  const errors = formErrors 
+  const {push} = useHistory()
+
+  // useEffect( () => {
+  //   axios.get()
+  // },[] )
+
+  const login = (userInfo) => {
+    axiosWithAuth().post('https://african-market-allstars.herokuapp.com/api/auth/login', userInfo)
+    .then( res => {
+      console.log( 'success' , res )
+      localStorage.setItem('token' , res.data.token)
+      localStorage.setItem('id' , res.data.auth.id)
+      push(`/profile/${res.data.auth.id}`)
+    } )
+    .catch( err => console.log(err))
+  }
 
   const onSubmit = (evt) => {
     evt.preventDefault();
+    login(values)
     submit();
   };
   const onChange = (evt) => {
@@ -90,7 +109,7 @@ export default function LoginForm() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} validate onSubmit={onSubmit}>
+        <form className={classes.form}  onSubmit={onSubmit}>
           <TextField
             variant="outlined"
             margin="normal"

@@ -10,6 +10,12 @@ h3{
   margin-bottom: 5vh;
 }
 
+.homeImgFrame{
+  width: 26%;
+  margin-bottom: 5vh;
+  height: 60vh;
+}
+
 .homeImgContainer{
   display: flex;
   flex-flow: row wrap;
@@ -17,9 +23,12 @@ h3{
 }
 
 .homeImg{
-  width: 26%;
-  margin-bottom: 5vh;
+  width: 100%;
   height: 50vh;
+}
+
+.homeImgCaption{
+  font-size: 2rem;
 }
 
 .linkShopContainer{

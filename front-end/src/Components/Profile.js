@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { axiosWithAuth } from '../Utilities/axiosWithAuth';
 import EditItem from './EditItem'
 const Profile = () => {
+  
     const params = useParams();
     const initialForm = {
         name: '',
@@ -61,6 +62,7 @@ const Profile = () => {
         setItemToEdit(item)
     }
 
+
     const currentEdit = e => {
         e.preventDefault()
         // axiosWithAuth().put(`https://african-market-allstars.herokuapp.com/api/users${params.id}/items/${itemToEdit.id}`, itemToEdit)
@@ -98,6 +100,7 @@ const Profile = () => {
             <form onSubmit = {onSubmit}>
                 <label htmlFor='itemName'>Item Name</label>
                 <input
+
                     name = 'name'
                     type = 'text'
                     value = {item.itemName}
@@ -111,25 +114,30 @@ const Profile = () => {
                     value = {item.category}
                     onChange = {onChange}
 
+
                 />
                 <label htmlFor='price'>Price</label>
                 <input
+
                     name = 'price'
                     type = 'text'
                     value = {item.price }
                     onChange = {onChange}
 
+
                 />
                 <label htmlFor='description'>Description</label>
                 <textarea
+
                     name = 'description'
                     value = {item.description}
                     onChange = {onChange}
-                    
+
 
                 />
                 <button>Submit</button>
             </form>
+
             {itemList.map( item =>  (
                 <div>
                     <p>{item.itemName}</p>
@@ -148,8 +156,9 @@ const Profile = () => {
             currentEdit ={currentEdit}
             setEditing={setEditing} /> }
 
+
         </div>
-    
+
 
     )
 }

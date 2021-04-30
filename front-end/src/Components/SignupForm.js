@@ -2,13 +2,15 @@
 // import { axiosWithAuth } from '../Utilities/axiosWithAuth'
 import React, { useEffect } from 'react'
 import { useForm } from '../hook/useForm'
+import { axiosWithAuth } from '../Utilities/axiosWithAuth'
+import { useHistory } from 'react-router';
 //added for material ui
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -83,20 +85,24 @@ export default function SignupForm() {
     const submit = formSubmit
 
     const newSignup = {
+
         username: values.username,
         email: values.email,
         password: values.password,
+
     };
 
     
 
     const newUser = (login) => {
+
         axios.post('https://african-market-allstars.herokuapp.com/api/auth/register', login)
             .then(res => {
                 console.log('success', res)
                 push('/login')
         })
             .catch(err => console.log('error', err.message))
+
     }
 
 
@@ -160,16 +166,20 @@ export default function SignupForm() {
 
                             />
                         </Grid>
+
                         {/* <Grid item xs={12}>
                             <FormControlLabel
+
                                 control={<Checkbox checked={values.terms}
                                     onChange={onChange}
                                     type='checkbox'
                                     name='terms'
                                     color="primary" />}
                                 label="Do you agree to be a beautiful human?"
+
                             />
                         </Grid> */}
+
                     </Grid>
                     <Button
                         type="submit"

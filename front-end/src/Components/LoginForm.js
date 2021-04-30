@@ -1,6 +1,10 @@
+
 import React, { useEffect } from "react";
+import axios from 'axios';
 import { useForm } from "../hook/useForm";
-import { axiosWithAuth } from "../Utilities/axiosWithAuth"
+import { useHistory } from 'react-router';
+import { axiosWithAuth } from '../Utilities/axiosWithAuth'
+
 //Material ui stuff
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -52,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LoginForm() {
   const classes = useStyles();
+  const { push } = useHistory()
   const startSignUp = {
     //text inputs//
     username: "",
@@ -71,9 +76,6 @@ export default function LoginForm() {
   const errors = formErrors 
   const {push} = useHistory()
 
-  // useEffect( () => {
-  //   axios.get()
-  // },[] )
 
   const login = (userInfo) => {
     axiosWithAuth().post('https://african-market-allstars.herokuapp.com/api/auth/login', userInfo)
@@ -83,6 +85,7 @@ export default function LoginForm() {
       push(`/profile/${res.data.auth.username}`)
     } )
     .catch( err => console.log(err))
+
   }
 
   const onSubmit = (evt) => {
@@ -108,7 +111,9 @@ export default function LoginForm() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
+
         <form className={classes.form}  onSubmit={onSubmit}>
+
           <TextField
             variant="outlined"
             margin="normal"

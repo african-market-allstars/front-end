@@ -8,7 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import ItemCard from './ItemCard'
-
+import { connect } from 'react-redux'
+import {getItems} from '../actions'
 const Profile = () => {
     // INITIAL FORM DATA
     const initialForm = {
@@ -198,5 +199,8 @@ const Profile = () => {
 
     )
 }
+// const mapStateToProps = state => ({
+//     items: state.items
+// })
 
 export default Profile

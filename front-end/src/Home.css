@@ -39,10 +39,9 @@ h3{
 
 .linkShop{
   text-align: center;
-  color: #040084;
-  background-color: #fd7f00;
+  color: #fff;
+  background-color: #1EBA4D;
   font-size: 1.4rem;
-  border: 3px solid #Cf4201;
   text-decoration: none;
   margin: 1% 0;
   transition: border 1s;
@@ -55,7 +54,5 @@ h3{
 }
 
 .linkShop:hover{
-  color: #fd7f00;
-  background-color: #0141cf;
-  border: 3px solid #040084;
+  background-color:  #093B18;
 }

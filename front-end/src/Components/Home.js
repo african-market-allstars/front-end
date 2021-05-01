@@ -41,9 +41,11 @@ const Home = (()=>{
 
   return(
     <div>
-      <h2>Welcome Back</h2>
+      <h2>Saati African Marketplace</h2>
       <h3>Jump right back into the savings with these quality products</h3>
-
+      <div className="linkShopContainer">
+          <Link className="linkShop" to="/shop">Shop Now</Link>
+      </div>
       <div className="homeImgContainer">
         <div className="homeImgFrame">
           <img className="homeImg" src={randProd1.imageUrl}/>
@@ -71,9 +73,7 @@ const Home = (()=>{
         </div>
       </div>
 
-      <div className="linkShopContainer">
-        <Link className="linkShop" to="/shop">Shop Now</Link>
-      </div>
+      
     </div>
   );
 })

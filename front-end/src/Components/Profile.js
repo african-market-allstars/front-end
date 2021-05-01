@@ -4,16 +4,20 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { axiosWithAuth } from '../Utilities/axiosWithAuth';
 import EditItem from './EditItem'
+import { makeStyles } from '@material-ui/core/styles';
+import { TextField } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import ItemCard from './ItemCard'
+
 const Profile = () => {
-  
-    const params = useParams();
+    // INITIAL FORM DATA
     const initialForm = {
         name: '',
         category: '',
         price: '',
         description: ''
       };
-
+// STATE
     const [itemList , setItemList] = useState([])
     const [item , setItem] = useState(initialForm)
     const [editing , setEditing] = useState(false)
@@ -28,7 +32,7 @@ const Profile = () => {
         })
         .catch(err => console.log(err))
     },[] )
-
+// INPUT CHANGE HANDLER
   const onChange = (e) => {
       const {name , value} = e.target
     setItem({
@@ -48,7 +52,7 @@ const Profile = () => {
         })
         .catch( err => console.log('error', err))
     }
-
+// HANDLE SUBMIT
     const onSubmit = (e) => {
         e.preventDefault()
         postItem(item)
@@ -82,7 +86,7 @@ const Profile = () => {
     }
     // DELETE ITEM
     const deleteItem = item => {
-        axiosWithAuth().put(`https://reqres.in/api/users/${item.id}`, item)
+        axiosWithAuth().delete(`https://reqres.in/api/users/${item.id}`, item)
         .then( res => {
             console.log( res)
             const updateList = itemList.filter( item => item.id !== Number(res.data) )
@@ -90,6 +94,36 @@ const Profile = () => {
         })
         .catch( err => console.log(err))
     }
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            backgroundColor: '#f3f3f3',
+            width:'35%',
+            borderRadius: '25px',
+            margin: 'auto',
+          '& > *': {
+            margin: theme.spacing(1),
+            width: '25ch',
+            
+          },
+       
+        },
+        card: {
+            display: 'flex',
+            flexWrap:'wrap',
+            width:'90%',
+            marginLeft:'5%',
+            justifyContent:'space-around',
+            alignItems: 'center'
+        },
+        button: {
+            backgroundColor: '#1EBA4D',
+            color: 'white'
+          }
+      }));
+      const classes = useStyles();
+      const params = useParams();
+      console.log(params)
     return (
         <div>
             <section className='intro'>
@@ -97,18 +131,29 @@ const Profile = () => {
                 <h3>Thanks for being a beautiful human</h3>
                 <h5>Let's post a new item to the market</h5>
             </section>
-            <form onSubmit = {onSubmit}>
-                <label htmlFor='itemName'>Item Name</label>
-                <input
 
+            
+            { editing && <EditItem
+            itemToEdit = {itemToEdit}
+            setItemToEdit={setItemToEdit}
+            currentEdit ={currentEdit}
+            setEditing={setEditing} /> }
+
+            {!editing && 
+            
+            <form className={classes.root} onSubmit = {onSubmit}>
+                <TextField
+                    id="standard-basic"
+                    label="Item Name"
                     name = 'name'
                     type = 'text'
                     value = {item.itemName}
                     onChange = {onChange}
 
                 />
-                <label htmlFor='category'>Category</label>
-                <input
+                <TextField
+                    id="standard-basic"
+                    label = "Category"
                     name = 'category'
                     type = 'text'
                     value = {item.category}
@@ -116,9 +161,9 @@ const Profile = () => {
 
 
                 />
-                <label htmlFor='price'>Price</label>
-                <input
-
+                <TextField
+                    id="standard-basic"
+                    label = "Price"
                     name = 'price'
                     type = 'text'
                     value = {item.price }
@@ -126,35 +171,26 @@ const Profile = () => {
 
 
                 />
-                <label htmlFor='description'>Description</label>
-                <textarea
-
+                <TextField
+                    id="standard-basic"
+                    label = "Description"
                     name = 'description'
                     value = {item.description}
                     onChange = {onChange}
+                    multiline
 
 
                 />
-                <button>Submit</button>
+                <Button className={classes.button} variant="contained">Submit</Button>
             </form>
+        }
+            <section className={classes.card}>
+             {itemList.map( item =>  (
+               <ItemCard  item={item} editItem={editItem} deleteItem={deleteItem} />
+            ) )}   
+            </section>
+            
 
-            {itemList.map( item =>  (
-                <div>
-                    <p>{item.itemName}</p>
-                    <img width="20%" src={item.image_url} alt={item.description}></img>
-                    <p>{item.subcategory}</p>
-                    <p>{item.price}</p>
-                    <p>{item.description}</p>
-                    <button onClick={() => editItem(item)}>Edit</button>
-                    <button onClick={() => deleteItem(item)}>Delete</button>
-                </div>
-            ) )}
-
-            { editing && <EditItem
-            itemToEdit = {itemToEdit}
-            setItemToEdit={setItemToEdit}
-            currentEdit ={currentEdit}
-            setEditing={setEditing} /> }
 
 
         </div>

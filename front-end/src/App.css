@@ -2,12 +2,11 @@
   box-sizing: border-box;
   
   text-align: center;
-  color: #040084;
-}
-body{
-  background-color: #00843e;
 }
 
+body{
+  min-width: 375px;
+}
 nav{
   display: flex;
   justify-content: space-evenly;

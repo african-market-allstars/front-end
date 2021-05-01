@@ -81,7 +81,7 @@ export default function LoginForm() {
       .then(res => {
         console.log('success', res)
         localStorage.setItem('token', res.data.token)
-        push(`/profile/${res.data.auth.username}`)
+        push(`/profile/${values.username}`)
       })
       .catch(err => console.log(err))
 
@@ -118,13 +118,13 @@ export default function LoginForm() {
             margin="normal"
             required
             fullWidth
-            id="username"
             label="Username"
             name="username"
             autoComplete="username"
             autoFocus
+            type='text'
             onChange={onChange}
-            values={values.username}
+            value={values.username}
           />
           <TextField
             variant="outlined"
@@ -134,9 +134,8 @@ export default function LoginForm() {
             name="password"
             label="Password"
             type="password"
-            id="password"
             autoComplete="current-password"
-            values={values.password}
+            value={values.password}
             onChange={onChange}
           />
           <FormControlLabel

@@ -2,33 +2,31 @@
   box-sizing: border-box;
   
   text-align: center;
-  color: #040084;
-}
-body{
-  background-color: #00843e;
 }
 
+body{
+  min-width: 375px;
+}
 nav{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: #Cf4201;
+  background: #1EBA4D;
 }
 
 .link{
   text-align: center;
   color: #000000;
-  background-color: #fecc98;
+  background-color: #1EBA4D;
   font-size: 1.4rem;
-  width: 10rem;
-  border: 2px solid #fd7f00;
+  width: 20%;
   text-decoration: none;
   margin: 1% 0;
+  padding: 0.5rem;
   transition: border 1s;
 }
 
 .link:hover{
-  color: #fd7f00;
-  background-color: #e31c23;
-  border: 2px solid #040084;
+  color: #fff;
+  background-color: #093B18;
 }

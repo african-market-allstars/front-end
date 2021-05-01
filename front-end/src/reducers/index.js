@@ -2,6 +2,7 @@ import {  GET_ITEMS, GET_ITEMS_SUCCESS, GET_ITEMS_FAILURE, UPDATE_ITEM, DELETE_I
 
  
 const initialState = {
+    itemList: [],
     items: {
         name:'',
         price: '',
@@ -23,7 +24,7 @@ export const reducer = ( state = initialState, action) => {
         case GET_ITEMS_SUCCESS:
             return {
                 ...state,
-                items: action.payload,
+                itemList: action.payload,
                 isLoading: false
             }
         case GET_ITEMS_FAILURE:

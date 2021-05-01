@@ -5,7 +5,6 @@ export const GET_ITEMS_FAILURE = 'GET_ITEMS_FAILURE'
 export const UPDATE_ITEM = 'UPDATE_ITEM'
 export const DELETE_ITEM = 'DELETE_ITEM'
 
-const baseURL = 'https://african-marketplace-oz.herokuapp.com'
 
 export const getItems = () => (dispatch) => {
  
@@ -32,10 +31,3 @@ export const getItems = () => (dispatch) => {
     } )
 }
 
-export const updateItem = () => (dispatch) => {
-
-    axios.put(`${baseURL}/api/users/:id`)
-    .then( res => {
-        console.log( ' item updated' , res)
-    } )
-}
